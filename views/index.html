@@ -1,0 +1,8 @@
+
+<h1>{{ title }}</h1>
+<p>This is the list of the next class of inductees to the World Swimming Hall of Fame.</p>
+<ul>
+{% for person in people %}
+  <li><h3>{{ person.name }}</h3></li>
+{% endfor %}
+</ul>

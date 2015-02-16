@@ -1,14 +1,24 @@
 
 var express = require( 'express' );
 var morgan = require('morgan');
+var swig = require('swig');
 
 var app = express();
 
 app.use(morgan('dev'));
 
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', './views');
+
+swig.setDefaults({ cache: false });
+
+
 
 app.get('/', function (req, res) {
-  res.send('hello, world!')
+
+  var people = [{name: 'Michael Phelps'}, {name: 'Ian Thorpe'}, {name: 'Joe Beutler'}];
+  res.render('index', {title: 'Hall of Fame', people: people} );
 });
 
 app.get('/news', function (req, res) {
