@@ -8,15 +8,20 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-      <b>Your Name</b><br>
-      100 followers
+      <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/005/01b/0ee/08196c7.jpg"><br>
+      <b>Joe Beutler</b><br>
+      10.1M followers
     </div>
     <div class="col-md-9">
+      <h3>All Tweets</h3>
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+        <div class="tweetbox">
+        	<img></img>
+        	<div class="content by"><h5>{{tweet.name}}</h5></div>
+        	<div class="content">{{tweet.text}}</div>
+        </div>
       {% endfor %}
       
     </div>
