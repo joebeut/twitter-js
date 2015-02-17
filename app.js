@@ -10,20 +10,16 @@ app.use(morgan('dev'));
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', './views');
+app.use(express.static(__dirname + '/public'));
 
 swig.setDefaults({ cache: false });
 
 
 
-app.get('/', function (req, res) {
+var routes = require('./routes/');
+app.use('/', routes);
 
-  var people = [{name: 'Michael Phelps'}, {name: 'Ian Thorpe'}, {name: 'Joe Beutler'}];
-  res.render('index', {title: 'Hall of Fame', people: people} );
-});
 
-app.get('/news', function (req, res) {
-  res.send('Nothing to report today. Please try back next year.')
-});
 
 var server = app.listen(3000, function () {
 
