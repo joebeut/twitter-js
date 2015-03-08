@@ -4,7 +4,8 @@ var _ = require('underscore');
 var data = [];
 
 var add = function (name, text) {
-  data.push({ name: name, text: text, id: Math.floor((Math.random() * 100) + 1)});
+  var id = Math.floor((Math.random() * 100) + 1);
+  data.push({ name: name, text: text, id: id});
 };
 
 var list = function () {
