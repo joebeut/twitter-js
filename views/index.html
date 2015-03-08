@@ -4,7 +4,7 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>Welcome to Twitter.js, Joe!</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -17,10 +17,15 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <div class="tweetbox">
-        	<img></img>
-        	<div class="content by"><h5>{{tweet.name}}</h5></div>
-        	<div class="content">{{tweet.text}}</div>
+        <div class="tweetbox container-fluid col-lg-12">
+          <div class="col-lg-1 col-md-1 col-sm-1">
+        	 <img></img>
+          </div>
+          <div class="col-lg-11 col-md-11 col-sm-11">
+        	 <div class="content by"><h5><a href="/users/{{tweet.name}}">{{tweet.name}}</a></h5></div>
+        	 <div class="content">{{tweet.text}}</div>
+           <a href="">Re-tweet</a>
+          </div>
         </div>
       {% endfor %}
       
